@@ -1,0 +1,9 @@
+#app{
+  
+.van-cell{
+  color: $text-color;
+  &__title{
+    max-width: 110px;
+  }
+}
+}

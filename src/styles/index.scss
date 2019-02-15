@@ -1,0 +1,95 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+
+//ui
+@import './button.scss';
+@import './nav-bar.scss';
+@import './cell.scss';
+@import './tab.scss';
+@import './dialog.scss';
+@import './checkbox.scss';
+@import './switch.scss';
+@import './toast.scss';
+@import './upload.scss';
+@import './radio.scss';
+
+body,html,#app{
+  color: $black;
+  height: 100%;
+  background-color: $background-color;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p{
+  margin: 0;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.primary{
+  color: $button-text-color
+}
+
+//提交表单的大按钮用这个包着，用van-cell会有下底边，恰好下在别的地方底边确实有用
+.enter-btn{
+  margin-top: 35px;
+  padding: 0 15px;
+  &+&{
+    margin-top: 0;
+  }
+}
+
+// 去除数字输入自带的按钮
+input[type=number] {  
+  appearance:textfield;  
+}  
+input[type=number]::-webkit-inner-spin-button,  
+input[type=number]::-webkit-outer-spin-button {  
+  appearance: none;  
+  margin: 0;  
+}  
+
+// input placeholder 颜色
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+  color: $button-disabled-color; 
+  } 
+  input:-moz-placeholder, textarea:-moz-placeholder { 
+  color: $button-disabled-color; 
+  } 
+  input::-moz-placeholder, textarea::-moz-placeholder { 
+  color: $button-disabled-color; 
+  } 
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+  color: $button-disabled-color; 
+  } 
+
+//去除ie密码小眼睛
+::-ms-clear, ::-ms-reveal{display: none;}
+
+
+.nickname-text{
+  max-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  &.right{
+    text-align: right;
+  }
+}
+
+.loading-wrapper{
+  text-align: center;
+  color: #999;
+  margin-top: 10px;
+  font-size: 12px;
+}

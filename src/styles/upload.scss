@@ -1,0 +1,43 @@
+.van-uploader.pingzheng-upload{
+  width: 88px;
+  height: 88px;
+  margin-bottom: 5px;
+  border: dashed 1px #c7c7c7;
+  box-sizing: border-box;
+  color: #999999;
+  text-align: center;
+  font-size: 10px;
+  .svg-icon{
+    margin-top: 15px;
+    font-size: 21px;
+  }
+}
+
+.pic-item{
+  display: inline-block;
+  vertical-align: top;
+  width: 88px;
+  height: 88px;
+  margin-left: 5px;
+  overflow: hidden;
+  position: relative;
+  .close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    opacity: .6;
+    color: #fc4276;
+    text-align: center;
+    z-index: 2;
+    transition: all .2s;
+    &:active{
+      transform: scale(1.1) rotate(30deg);
+    }
+  }
+  img{
+    width: 100%;
+    position: absolute;top: 50%;transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,59 @@
+// 尽量定义颜色 页面引入此文件，使用变量好为日后换肤做准备
+
+/* color variables */
+$black: #3a4254;
+$white: #fff;
+$red: #f44;
+$blue: #ff414c;
+$blue-darker: #4c4eb3;
+$orange: #f85;
+$green: #06bf04;
+$gray: #c9c9c9;
+$gray-light: #e5e5e5;
+$gray-darker: #666;
+$gray-dark: #999;
+$dim-grey: #8e939f;
+$tips-color: #858bac;
+/* default colors */
+$text-color: #3a4254;
+$border-color: $gray-light;
+$active-color: #e8e8e8;
+$background-color: #f4f4f4;
+$divider-color: #cfd0d3;
+$placeholder-color: #bfc5d4;
+$field-label-color: #707380;
+$sell-btn-color: #03c087;
+$buy-btn-color: #fc4276;
+$offline-dot: #d1d6e0;
+$online-dot: #03c087;
+$cell-title-color: #7b8498;
+$cell-item-color: #0d202b;
+
+/* button */
+$button-default-color: $text-color;
+$button-default-background-color: $white;
+$button-default-border-color: $border-color;
+$button-primary-color: $white;
+$button-text-color: $blue;
+$button-text-active-color: $blue;
+$button-primary-background-color: $blue;
+$button-primary-border-color: $blue;
+$button-danger-color: $white;
+$button-danger-background-color: $red;
+$button-danger-border-color: $red;
+$button-warning-color: $white;
+$button-warning-background-color: $orange;
+$button-warning-border-color: $orange;
+$button-buy-color: $white;
+$button-buy-background-color: #fc4276;
+$button-buy-border-color: #fc4276;
+$button-sell-color: $white;
+$button-sell-background-color: #03c087;
+$button-sell-border-color: #03c087;
+$button-disabled-color: $gray-dark;
+$button-disabled-background-color: $active-color;
+$button-disabled-border-color: $border-color;
+$button-bottom-action-default-color: $white;
+$button-bottom-action-default-background-color: #f85;
+$button-bottom-action-primary-color: $white;
+$button-bottom-action-primary-background-color: $red;

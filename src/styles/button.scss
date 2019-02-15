@@ -1,0 +1,194 @@
+#app {
+  //注释掉的是原版，用来参考
+
+  .van-button {
+    // position: relative;
+    // padding: 0;
+    // display: inline-block;
+    // height: 44px;
+    // line-height: 42px;
+    // border-radius: 2px;
+    // box-sizing: border-box;
+    // font-size: 16px;
+    // text-align: center;
+    // -webkit-appearance: none;
+    // -webkit-text-size-adjust: 100%;
+  
+    &::before {
+      // content: " ";
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // opacity: 0;
+      // width: 100%;
+      // height: 100%;
+      // border: inherit;
+      border-color: $black;
+      background-color: $black;
+      // border-radius: inherit; /* inherit parent's border radius */
+      // transform: translate(-50%, -50%);
+    }
+  
+    // &:active::before {
+    //   opacity: .3;
+    // }
+  
+    // &--unclickable::before {
+    //   display: none;
+    // }
+  
+    &--default {
+      color: $button-default-color;
+      background-color: $button-default-background-color;
+      border: 1px solid $button-default-border-color;
+    }
+  
+    &--primary {
+      color: $button-primary-color;
+      background-color: $button-primary-background-color;
+      border: 1px solid $button-primary-border-color;
+    }
+    &--primary-text {
+      color: $button-primary-color;
+      background-color: #e6e4e4;
+      border: 1px solid #e6e4e4;
+    }
+    &--text {
+      padding: 0;
+      color: $button-text-color;
+      background-color: transparent;
+      border: 1px solid transparent;
+    }
+    &--danger {
+      color: $button-danger-color;
+      background-color: $button-danger-background-color;
+      border: 1px solid $button-danger-border-color;
+    }
+  
+    &--warning {
+      color: $button-warning-color;
+      background-color: $button-warning-background-color;
+      border: 1px solid $button-warning-border-color;
+    }
+
+    &--buy {
+      border-radius: 0;
+      color: $button-buy-color;
+      background-color: $button-buy-background-color;
+      border: 1px solid $button-buy-border-color;
+    }
+    &--sell {
+      border-radius: 0;
+      color: $button-sell-color;
+      background-color: $button-sell-background-color;
+      border: 1px solid $button-sell-border-color;
+    }
+  
+    &--plain {
+      background-color: $white;
+  
+      &.van-button--primary {
+        color: $button-primary-background-color;
+      }
+      &.van-button--primary-text {
+        background-color: #e6e4e4;
+        color: $button-primary-background-color;
+      }
+      &.van-button--danger {
+        color: $button-danger-background-color;
+      }
+  
+      &.van-button--warning {
+        color: $button-warning-background-color;
+      }
+    }
+  
+    // &--large {
+    //   width: 100%;
+    //   height: 50px;
+    //   line-height: 48px;
+    // }
+  
+    // &--normal {
+    //   padding: 0 15px;
+    //   font-size: 14px;
+    // }
+  
+    &--small {
+      height: 23px;
+      padding: 0 8px;
+      min-width: 0;
+      font-size: 12px;
+      line-height: 23px;
+    }
+    // asset专用哦
+    &--asset {
+      height: 28px;
+      line-height: 28px;
+      padding: 0 11px;
+      font-size: 14px;
+    }
+    &--flat {
+      height: 28px;
+      line-height: 28px;
+      padding: 0 28px;
+      font-size: 14px;
+    }
+    // &--loading {
+    //   .van-loading {
+    //     display: inline-block;
+    //   }
+    // }
+  
+    /* mini图标默认宽度50px，文字不能超过4个 */
+    // &--mini {
+    //   display: inline-block;
+    //   width: 50px;
+    //   height: 22px;
+    //   line-height: 20px;
+    //   font-size: 10px;
+  
+    //   & + .van-button--mini {
+    //     margin-left: 5px;
+    //   }
+    // }
+  
+    // &--block {
+    //   width: 100%;
+    //   display: block;
+    // }
+  
+    &--bottom-action {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      border: 0;
+      border-radius: 0;
+      font-size: 16px;
+      color: $button-bottom-action-default-color;
+      background-color: #ffc039;
+  
+      &.van-button--primary {
+        background-color: #ff414c;
+      }
+    }
+  
+    &--disabled {
+      opacity: .5;
+    }
+    &--disabled.van-button--text {
+      color: $button-disabled-color;
+      background-color: transparent;
+      border: 1px solid transparent;
+    }
+    
+    &--round {
+      border-radius: 10em;
+    }
+  
+    &--square {
+      border-radius: 0;
+    }
+  }
+  
+}
