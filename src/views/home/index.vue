@@ -73,7 +73,7 @@ export default {
       this.$store.dispatch('getPackList',this.listOptions).then(res => {
         this.listOptions.page = this.listOptions.page+1
         this.loading = false;
-        const lastPackTime = new Date(res.data.blog_data[0].created_at).getTime()
+        const lastPackTime = new Date(this.packList[this.packList.length-1].created_at).getTime()
         if(lastPackTime<this.lastLoadTime[`${this.lng}&${this.lat}&${this.ticket}`]){
           this.finished =true
         }

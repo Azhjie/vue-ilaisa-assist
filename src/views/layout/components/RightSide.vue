@@ -112,8 +112,7 @@ export default {
       this.listOptions.page ===1 && this.logList.push('稍等片刻，正在给你找红包...')
       this.$store.dispatch('getPackList',this.listOptions).then(res => {
         this.listOptions.page = this.listOptions.page+1
-
-        const lastPackTime = new Date(res.data.blog_data[0].created_at).getTime()
+        const lastPackTime = new Date(this.packList[this.packList.length-1].created_at).getTime()
 
         if (res.data.blog_data.length <=0 || lastPackTime<this.lastLoadTime[`${this.lng}&${this.lat}&${this.ticket}`]) {
           this.listOptions.page = 1 // 请求完毕初始化请求
@@ -145,8 +144,8 @@ export default {
         }else{
           this.getAllPack()
         }
-      }).catch(() => {
-        
+      }).catch((e) => {
+        console.log(e)
       })
     },
     changeNeedLoad(val){
