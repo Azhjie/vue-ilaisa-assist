@@ -1,7 +1,6 @@
 // import md5 from 'js-md5'
 import md5 from 'js-md5'
-import base64 from 'js-base64'
-console.log('base64', base64)
+import { Base64 } from 'js-base64'
 
 const g = function (t) {
   var e = void 0
@@ -27,5 +26,5 @@ export default function () {
     n.push(e);
   }
   o = n.join("&")
-  return md5((base64.Base64.encode(o))).toLowerCase()
+  return md5((Base64.encode(o))).toLowerCase()
 }

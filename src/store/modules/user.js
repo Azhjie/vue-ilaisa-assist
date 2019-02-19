@@ -1,5 +1,4 @@
 import localStore from 'store'
-import { removeToken } from '@/utils/auth'
 
 const user = {
   state: {
@@ -246,7 +245,6 @@ const user = {
         logout(state.token).then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
-          removeToken()
           resolve()
         }).catch(error => {
           reject(error)
@@ -258,7 +256,6 @@ const user = {
     FedLogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
-        removeToken()
         localStore.remove('username')
         localStore.remove('signature')
         localStore.remove('loginname')

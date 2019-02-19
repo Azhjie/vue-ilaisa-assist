@@ -3,16 +3,17 @@
 @import './transition.scss';
 
 //ui
-@import './button.scss';
-@import './nav-bar.scss';
-@import './cell.scss';
-@import './tab.scss';
-@import './dialog.scss';
-@import './checkbox.scss';
-@import './switch.scss';
-@import './toast.scss';
-@import './upload.scss';
-@import './radio.scss';
+// @import './button.scss';
+// @import './nav-bar.scss';
+// @import './cell.scss';
+// @import './tab.scss';
+// @import './dialog.scss';
+// @import './checkbox.scss';
+// @import './switch.scss';
+// @import './toast.scss';
+// @import './upload.scss';
+// @import './radio.scss';
+@import './popup.scss';
 
 body,html,#app{
   color: $black;

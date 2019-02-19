@@ -1,10 +1,11 @@
 import axios from 'axios'
 import qs from 'qs'
-import store from '@/store'
-import router from '@/router'
-import { Toast, Dialog } from 'vant'
-import resMessage from '@/utils/resMessage'
-import { typeCheck } from '@/utils'
+// import store from '@/store'
+import localStore from 'store'
+// import router from '@/router'
+import { Toast } from 'vant'
+// import resMessage from '@/utils/resMessage'
+// import { typeCheck } from '@/utils'
 import cryptoConfig from '@/utils/cryptoConfig'
 // create an axios instance
 
@@ -16,14 +17,16 @@ const service = axios.create({
 
 // 请求拦截
 service.interceptors.request.use(config => {
-
+  const keyInfo = localStore.get('keyInfo') || {}
   config.data = config.data || {}
   const megeCofig = Object.assign({},  {
     ClientSource: 3,
     ClientSystem: navigator.appVersion,
     Version: 3.1,
-    app_key:'a1d658379636c28e83b745147b35c8dd',
-    ticket:'0F3F023AE-EFDC-CB05-3914-4F2FDB10833F',
+    app_key: keyInfo.app_key || 'a1d658379636c28e83b745147b35c8dd',
+    ticket:keyInfo.ticket,
+    lng:keyInfo.lng,
+    lat:keyInfo.lat,
   },
     config.data || {},
   )
@@ -44,8 +47,9 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(
   response => {
     const res = response.data
-    if (res.error_code && res.error_code !== 0) {
-      return Promise.reject(response) // 报错给promise catch
+    if (res.status !== '1') {
+      Toast.fail(res.info+'去配置一下吧')
+      return Promise.reject(res) // 报错给promise catch
     } else {
       return res
     }

@@ -1,0 +1,8 @@
+.van-popup{
+  box-sizing: border-box;
+  &--left,&--right{
+    width: 85%;
+    height: 100%;
+    overflow: auto;
+  }
+}

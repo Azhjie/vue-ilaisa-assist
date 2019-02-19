@@ -1,18 +1,24 @@
 <template>
   <div class="app-wrapper">
-    <app-key></app-key>
+    <app-Nav></app-Nav>
     <app-main></app-main>
+    <left-side></left-side>
+    <right-side></right-side>
   </div>
 </template>
 
 <script>
 import AppMain from './components/AppMain'
-import AppKey from './components/AppKey'
+import AppNav from './components/AppNav'
+import LeftSide from './components/LeftSide'
+import RightSide from './components/RightSide'
 export default {
   name: 'layout',
   components: {
-    AppKey,
+    AppNav,
     AppMain,
+    LeftSide,
+    RightSide
   },
   data() {
     return {
