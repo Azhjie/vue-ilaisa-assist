@@ -1,8 +1,11 @@
 .van-popup{
   box-sizing: border-box;
+  width: 75%;
+  height: 75%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
   &--left,&--right{
     width: 85%;
     height: 100%;
-    overflow: auto;
   }
 }

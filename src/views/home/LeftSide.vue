@@ -86,13 +86,21 @@ export default {
   },
   mounted(){
     this.form = localStore.get('keyInfo') || {}
-    console.log(this.form)
   },
   methods: {
     handleClose(){
       this.$store.commit('TOGGLE_LEFTSIDE',false)
     },
+    validateTicket(){
+      const val = this.form.ticket
+      if(val.length!==37){
+        this.$toast('ticket的长度好像不太对劲')
+        return false
+      }
+      return true
+    },
     saveKey(){
+      if(!this.validateTicket())return
       localStore.set('keyInfo',this.form)
       this.$toast.success('已保存')
     },

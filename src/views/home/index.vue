@@ -1,10 +1,12 @@
 <template>
   <div class="home">
+    <app-Nav></app-Nav>
+    <left-side></left-side>
+    <right-side></right-side>
     <van-pull-refresh
       v-model="refreshing"
       @refresh="onRefresh"
-      :pulling-text="lastLoadTime[`${lng}&${lat}&${ticket}`]?`上次刷新时间: ${parseTime(lastLoadTime[`${lng}&${lat}&${ticket}`])}`:'下拉即可刷新...'"
-    >
+      :pulling-text="lastLoadTime[`${lng}&${lat}&${ticket}`]?`上次刷新时间: ${parseTime(lastLoadTime[`${lng}&${lat}&${ticket}`])}`:'下拉即可刷新...'">
       <van-list
         v-model="loading"
         :finished="finished"
@@ -21,6 +23,7 @@
         </van-cell>
       </van-list>
     </van-pull-refresh>
+    <bottom-bar :active=0></bottom-bar>
   </div>
 </template>
 
@@ -29,9 +32,18 @@ import request from '@/utils/request'
 import { parseTime } from '@/utils'
 import { mapGetters } from 'vuex'
 import localStore from 'store'
+import AppNav from './AppNav'
+import LeftSide from './LeftSide'
+import RightSide from './RightSide'
+import BottomBar from '@/components/BottomBar'
 export default {
   name: 'home',
-  components: { },
+  components: {
+    AppNav,
+    LeftSide,
+    RightSide,
+    BottomBar
+   },
   data() {
     return {
       loading:false,
@@ -122,7 +134,7 @@ export default {
   height: 42px;
 }
 .van-list{
-  min-height: calc(100vh - 46px);
+  min-height: calc(100vh - 96px);
 }
 .van-cell{
   /deep/  .van-cell__value{

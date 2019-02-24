@@ -5,7 +5,7 @@ const app = {
   state: {
     leftSide: false,
     rightSide: false,
-    needLoad: localStore.get('needLoad'),
+    needLoad: localStore.get('needLoad') || false,
     packList: [],
     lastLoadTime:localStore.get('lastLoadTime') || {}  //key:上次使用的经纬度 value:上次加载时间
   },
@@ -29,6 +29,10 @@ const app = {
       state.lastLoadTime[`${lng}&${lat}&${ticket}`] = value
       localStore.set('lastLoadTime', state.lastLoadTime)
     },
+    SET_MULTILASTLOADTIME: (state, value) => {
+      Object.assign(state.lastLoadTime,value)
+      localStore.set('lastLoadTime', state.lastLoadTime)
+    }
   },
   actions: {
     getPackList({ commit, state }, params) {
@@ -52,7 +56,7 @@ const app = {
         })
       })
     },
-    getPack({ commit }, blog_id) {
+    getPack({ commit }, { ticket, blog_id}) {
       return new Promise((resolve, reject) => {
         request({
           url:'/api',

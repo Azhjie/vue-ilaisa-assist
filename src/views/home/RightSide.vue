@@ -1,5 +1,5 @@
 <template>
-  <div class="left-side">
+  <div class="right-side">
     <van-popup
       v-model="show"
       @close="handleClose"
@@ -45,7 +45,7 @@ import localStore from 'store'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: "left-side",
+  name: "right-side",
   components: {},
   data() {
     return {
@@ -65,7 +65,7 @@ export default {
       logList:[],
       lng:'',
       lat:'',
-      ticket: '',
+      ticket: ''
     };
   },
   watch: {
@@ -109,7 +109,10 @@ export default {
       this.lat = lat
       this.ticket = ticket.replace(/-/g,'')
 
-      this.listOptions.page ===1 && this.logList.push('稍等片刻，正在给你找红包...')
+      if(this.listOptions.page ===1 ){
+        this.logList = [] 
+        this.logList.push('稍等片刻，正在给你找红包...')
+      }
       this.$store.dispatch('getPackList',this.listOptions).then(res => {
         this.listOptions.page = this.listOptions.page+1
         const lastPackTime = new Date(this.packList[this.packList.length-1].created_at).getTime()
@@ -126,7 +129,7 @@ export default {
           }
           this.packList.forEach((element,index) => {
             if(element.is_receive == 0){
-              this.$store.dispatch('getPack',element.blog_id).then(res => {
+              this.$store.dispatch('getPack',{blog_id:element.blog_id}).then(res => {
               this.logList.push(`${index}、成功领取${element.name}的红包`)
               if(res.info === `领取成功`){//列表删除
                 this.$set(this.packList[index],'is_receive',1)

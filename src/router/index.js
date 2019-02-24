@@ -58,6 +58,19 @@ export const constantRouterMap = [
       },
     ]
   },
+  {
+    path: '/multiplayer',
+    component: Layout,
+    children: [
+      {
+        // 批量版
+        path: '',
+        component: _import('multi/index'),
+        name: 'multi',
+        meta: { title: 'multi', noCache: true }
+      },
+    ]
+  },
 ]
 
 export default new Router({
