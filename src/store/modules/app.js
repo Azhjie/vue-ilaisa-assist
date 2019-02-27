@@ -56,18 +56,17 @@ const app = {
         })
       })
     },
-    getPack({ commit }, { ticket, blog_id}) {
+    getPack({ commit }, data) {
       return new Promise((resolve, reject) => {
         request({
           url:'/api',
           method: 'post',
-          data:{
+          data:Object.assign({
             _cmd: 'blog_redpacket_receive',
-            blog_id,
             is_hand: 0,
             content: contentList[Math.floor(Math.random()*15)],
             introducer: 0,
-          }
+          },data)
         }).then(res => {
           resolve(res)
         }).catch((e) => {

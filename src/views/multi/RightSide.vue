@@ -184,7 +184,7 @@ export default {
           const lastPackTime = new Date(
             this.packList[this.packList.length - 1].created_at
           ).getTime(); //
-          const key = `multi${this.listOptions.lng}&${this.listOptions.lat}`;
+          const key = `multi${this.listOptions.lng}&${this.listOptions.lat}${this.listOptions.ticket.replace(/-/g,'')}`;
           if (
             res.data.blog_data.length <= 0 ||
             lastPackTime < this.lastLoadTime[key]
@@ -229,11 +229,13 @@ export default {
         console.log('item', item)
         this.$store.dispatch("getPack", {
           blog_id,
-          ticket: this.ticketList[item].ticket
+          ticket: this.ticketList[item].ticket,
+          lng: this.listOptions.lng,
+          lat: this.listOptions.lat,
           }).then(res => {
             this.$toast.loading({
               mask: true,
-              message: '薅羊毛中...'
+              message: `${item}正在薅${name}的羊毛中...`
             });
           }).catch(e => {
             if (e.info === "请登录后操作") {

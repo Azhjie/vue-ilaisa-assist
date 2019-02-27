@@ -15,8 +15,8 @@
           <van-cell 
             :title="x" 
             :class="{active:x === active}"
-            :label="`昵称：${ticketList[x].nickName ||'加载中...'}`" 
-            :value="`红包余额：${ticketList[x].amount||'加载中...'}`" >
+            :label="`${ticketList[x].nickName ||'加载中...'}`" 
+            :value="`红包：${ticketList[x].amount||'加载中...'}`" >
             <img class="icon" slot="icon" :src="ticketList[x].avatar" alt="">
           </van-cell>
           <span @click="delTicket(x)" slot="right">删除</span>
@@ -140,7 +140,17 @@ export default {
   &.active{
     background-color: #dfefff;
   }
+  
 }
+/deep/ .van-cell__title {
+    max-width: 70px;
+    
+  }
+/deep/  .van-cell__label{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  }
 /deep/ .van-cell__value{
   span{
     line-height: 44.6px;
