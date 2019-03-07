@@ -41,7 +41,7 @@ yarn run serve
 
 
  ### 截图
-<img src="public/img/home.png" width = "200">
-<img src="public/img/key.png" width = "200">
-<img src="public/img/user.png" width = "200">
-<img src="public/img/multi.png" width = "200">
+<img src="public/img/home.png">
+<img src="public/img/key.png">
+<img src="public/img/user.png">
+<img src="public/img/multi.png">
