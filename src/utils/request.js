@@ -24,9 +24,9 @@ service.interceptors.request.use(config => {
     ClientSystem: navigator.appVersion,
     Version: 3.1,
     app_key: keyInfo.app_key || 'a1d658379636c28e83b745147b35c8dd',
-    ticket:keyInfo.ticket,
-    lng:keyInfo.lng,
-    lat:keyInfo.lat,
+    ticket:keyInfo.ticket || '',
+    lng:keyInfo.lng|| '',
+    lat:keyInfo.lat|| '',
   },
     config.data || {},
   )

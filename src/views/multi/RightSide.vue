@@ -206,7 +206,9 @@ export default {
       this.$store.commit("SET_MULTILASTLOADTIME", timeStamp);
 
       let packNum = 0; //统计一下红包数量
-      const receiveStatus = this.packList.every((element, index) => {
+        console.log('this.packList', this.packList)
+      this.packList.forEach((element, index) => {
+        console.log('element', element)
         if (element.is_receive == 0) {
           packNum += 1;
           this.multipleOpen(element)
@@ -215,9 +217,10 @@ export default {
           // 抢完红包刷用户数据
           this.$emit('change',true);
         }
+      });
+      const receiveStatus = this.packList.every((element, index) => {
         return element.is_receive !== 0;
       });
-
       if (receiveStatus) {
         this.logList.push("都被你薅秃咯~");
       } else {

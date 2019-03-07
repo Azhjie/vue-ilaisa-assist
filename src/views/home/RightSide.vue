@@ -90,6 +90,10 @@ export default {
   },
   methods: {
     getUserInfo() {
+      const {ticket} = localStore.get('keyInfo')|| {}
+      if(!ticket){
+        return
+      }
       request({
         url: "/api",
         method: "post",
